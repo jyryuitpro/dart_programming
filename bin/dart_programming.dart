@@ -56,4 +56,49 @@ void main() {
   // const DateTime now2 = DateTime.now();
 
   // print(now2);
+
+  // int number = 2;
+
+  // print(number);
+  // print(number + 2);
+  // print(number - 2);
+  // print(number * 2);
+  // print(number / 2);
+
+  print('------------------');
+  // print(number % 2);
+  // print(number % 3);
+
+  // number의 값은 변하지 않는다.
+  // print(number);
+  print('------------------');
+
+  // number의 값 자체가 변한다.
+  // number++;
+  // print(number);
+
+  // number--;
+  // print(number);
+
+  double number = 4.0;
+
+  print(number);
+
+  // 연산된 값이 저장됨
+  number += 1;
+
+  print(number);
+
+  number -= 1;
+
+  print(number);
+
+  number *= 2;
+
+  print(number);
+
+  number /= 2;
+
+  print(number);
+
 }
