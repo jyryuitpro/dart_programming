@@ -1,39 +1,34 @@
 import 'package:dart_programming/dart_programming.dart' as dart_programming;
 
 void main() {
-  int number1 = 1;
-  int number2 = 2;
+  // List
+  // 리스트
+  List<String> blackPink = ['제니', '지수', '로제', '리사'];
+  List<int> numbers = [1, 2, 3, 4, 5, 6];
 
-  print(number1 > number2);
-  print(number1 < number2);
-  print(number1 >= number2);
-  print(number1 <= number2);
-  print(number1 == number2);
-  print(number1 != number2);
+  print(blackPink);
+  print(numbers);
 
-  print(number1 is int);
-  print(number1 is String);
+  // index
+  // 순서
+  // 0 부터시작
+  print(blackPink[0]);
+  print(blackPink[1]);
+  print(blackPink[2]);
+  print(blackPink[3]);
+  // Invalid value: Not in inclusive range 0..3: 4
+  // print(blackPink[4]);
 
-  print(number1 is! int);
-  print(number1 is! String);
+  print(blackPink.length);
 
-  bool result = 12 > 10 && 1 > 0;
+  blackPink.add('코드팩토리');
 
-  print(result);
+  print(blackPink);
 
-  bool result2 = 12 > 10 && 0 > 1;
+  blackPink.remove('코드팩토리');
 
-  print(result2);
+  print(blackPink);
 
-  bool result3 = 12 > 10 || 1 > 0;
+  print(blackPink.indexOf('로제'));
 
-  print(result3);
-
-  bool result4 = 12 > 10 || 0 > 1;
-
-  print(result4);
-
-  bool result5 = 12 < 10 || 0 > 1;
-
-  print(result5);
 }
