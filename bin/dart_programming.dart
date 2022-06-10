@@ -1,39 +1,19 @@
 import 'package:dart_programming/dart_programming.dart' as dart_programming;
 
+enum Status {
+  approved, // 승인
+  pending, // 대기
+  rejected, // 거절
+}
+
 void main() {
-  // while loop
+  Status status = Status.pending;
 
-  int total = 0;
-
-  while (total < 10) {
-    total += 1;
-
-    if (total == 5) {
-      break;
-    }
-  }
-
-  print(total);
-
-  do {
-    total += 1;
-  } while (total < 10);
-
-  print(total);
-
-  total = 0;
-
-  for (int i = 0; i < 10; i++) {
-    total +=1;
-    if (total == 5) {
-      break;
-    }
-  }
-
-  for (int i = 0; i < 10; i++) {
-    if (i == 5) {
-      continue;
-    }
-    print(i);
+  if (status == Status.approved) {
+    print('승인입니다.');
+  } else if (status == Status.pending) {
+    print('대기입니다.');
+  } else {
+    print('거절입니다.');
   }
 }
