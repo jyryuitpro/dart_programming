@@ -1,21 +1,27 @@
 import 'package:dart_programming/dart_programming.dart' as dart_programming;
 
 void main() {
-  // switch 문
-
-  int number = 3;
-
-  switch (number % 3) {
-    case 0:
-      print('나머지가 0입니다.');
-      break;
-
-    case 1:
-      print('나머지가 1입니다.');
-      break;
-
-    default:
-      print('나머지가 2입니다.');
-      break;
+  // for loop
+  for (int i = 0; i < 10; i++) {
+    print(i);
   }
+
+  int total = 0;
+
+  List<int> numbers = [1, 2, 3, 4, 5, 6];
+
+  for (int i = 0; i < numbers.length; i++) {
+    total += numbers[i];
+  }
+
+  print(total);
+
+  total = 0;
+
+  for (int number in numbers) {
+    print(number);
+    total += number;
+  }
+
+  print(total);
 }
