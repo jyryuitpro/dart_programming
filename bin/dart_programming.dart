@@ -1,23 +1,23 @@
 import 'package:dart_programming/dart_programming.dart' as dart_programming;
 
 void main() {
-  // Set: 중복을 자동으로 처리해준다.
-  final Set<String> names = {
-    'Code Factory',
-    'Flutter',
-    'Black Pink',
-    'Flutter',
-  };
+  // if 문
 
-  print(names);
+  // int number = 2;
+  // int number = 3;
+  int number = 4;
 
-  names.add('Jenny');
+  if (number % 2 == 0) {
+    print('값이 짝수입니다.');
+  } else {
+    print('값이 홀수입니다');
+  }
 
-  print(names);
-
-  names.remove('Jenny');
-
-  print(names);
-
-  print(names.contains('Flutter'));
+  if (number % 3 == 0) {
+    print('나머지가 0입니다.');
+  } else if (number % 3 == 1) {
+    print('나머지가 1입니다.');
+  } else {
+    print('나머지가 2입니다.');
+  }
 }
