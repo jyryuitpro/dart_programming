@@ -1,40 +1,24 @@
+import 'dart:async';
+
 import 'package:dart_programming/dart_programming.dart' as dart_programming;
 
-void main() async {
-  // Future - 미래
-  // 미래에 받아올 값
-  Future<String> name = Future.value('코드팩토리');
-  Future<int> number = Future.value(1);
-  Future<bool> isTrue = Future.value(true);
+void main() {
+  final controller = StreamController();
+  final stream = controller.stream.asBroadcastStream();
 
-  print('함수 시작');
-
-  // 2개의 파라미터
-  // delayed - 지연되다.
-  // 1번 파라미터 - 지연할 기간 (얼마나 지연할건지) Duration
-  // 2번 파라미터 - 지연 시간이 지난 후 실행할 함수
-  Future.delayed(Duration(seconds: 2), () {
-    print('Delay 끝');
+  // 짝수
+  final streamListener1 = stream.where((val) => val % 2 == 0).listen((val) {
+    print('Listener 1 : $val');
   });
 
-  final result1 = await addNumbers(1, 1);
-  final result2 = await addNumbers(2, 2);
-
-  print('result1: $result1');
-  print('result2: $result2');
-  print('result1 + result2 = ${result1 + result2}');
-}
-
-Future<int> addNumbers(int number1, int number2) async {
-  print('계산 시작 : $number1 + $number2');
-
-  // 서버 시뮬레이션
-  await Future.delayed(Duration(seconds: 2), () {
-    print('계산 완료 : $number1 + $number2 = ${number1 + number2}');
+  // 홀수
+  final streamListener2 = stream.where((val) => val % 2 == 1).listen((val) {
+    print('Listener 2 : $val');
   });
 
-  print('함수 완료 : $number1 + $number2');
-
-  // 자동으로 Future에 감싸서 함수가 리턴을 해준다.
-  return number1 + number2;
+  controller.sink.add(1);
+  controller.sink.add(2);
+  controller.sink.add(3);
+  controller.sink.add(4);
+  controller.sink.add(5);
 }
