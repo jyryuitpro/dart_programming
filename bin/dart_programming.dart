@@ -1,40 +1,47 @@
 import 'package:dart_programming/dart_programming.dart' as dart_programming;
 
 void main() {
-  Employee seulgi = Employee('슬기');
-  Employee chorong = Employee('초롱');
-  Employee jenny = Employee('제니');
+  BoyGroup bts = BoyGroup('BTS');
+  GirlGroup redVelvet = GirlGroup('레드벨벳');
+  // IdolInterface test = IdolInterface('블랙핑크');
 
-  seulgi.name = '코드팩토리';
-  seulgi.printNameAndBuilding();
-  chorong.printNameAndBuilding();
+  bts.sayName();
+  redVelvet.sayName();
 
-  Employee.building = '오투타워';
+  print(bts is IdolInterface);
+  print(bts is BoyGroup);
+  print(bts is GirlGroup);
 
-  seulgi.printNameAndBuilding();
-  chorong.printNameAndBuilding();
-
-  Employee.printBuilding();
+  print(redVelvet is IdolInterface);
+  print(redVelvet is BoyGroup);
+  print(redVelvet is GirlGroup);
 }
 
-class Employee {
-  // static은 instance에 귀속되지 않고 class에 귀속된다.
-  // 알바생이 일하고있는 건물
-  static String? building;
-
-  // 알바생 이름
-  // final String name;
+// interface (특수한 구조를 강제: 설계) | 인스턴스로 사용 불가
+abstract class IdolInterface {
   String name;
 
-  Employee(
-    this.name,
-  );
+  IdolInterface(this.name);
 
-  void printNameAndBuilding() {
-    print('제 이름은 $name입니다. $building 건물에서 근무하고 있습니다.');
+  void sayName();
+}
+
+class BoyGroup implements IdolInterface {
+  String name;
+
+  BoyGroup(this.name);
+
+  void sayName() {
+    print('제 이름은 $name입니다.');
   }
+}
 
-  static void printBuilding() {
-    print('저는 $building 건물에서 근무하고 있습니다.');
+class GirlGroup implements IdolInterface {
+  String name;
+
+  GirlGroup(this.name);
+
+  void sayName() {
+    print('제 이름은 $name입니다.');
   }
 }
