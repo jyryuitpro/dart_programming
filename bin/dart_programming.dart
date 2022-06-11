@@ -1,25 +1,17 @@
 import 'package:dart_programming/dart_programming.dart' as dart_programming;
 
 void main() {
-  List<String> names = [];
+  Test test = Test();
 
-  Lecture<String, String> lecture1 = Lecture('123', 'lecture1');
-
-  lecture1.printIdType();
-
-  Lecture<int, String> lecture2 = Lecture(123, 'lecture1');
-
-  lecture2.printIdType();
+  // test.runtimeType
+  // test.hashCode
+  // test.toString()
+  // test.noSuchMethod(invocation)
 }
 
-// generic - 타입을 외부에서 받을때 사용
-class Lecture<T, X> {
-  final T id;
-  final X name;
+// Object Oriented Programming
+// 객체지향 프로그래밍
+// class Test extends Object{
+class Test {
 
-  Lecture(this.id, this.name);
-
-  void printIdType() {
-    print(id.runtimeType);
-  }
 }
