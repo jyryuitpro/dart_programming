@@ -1,39 +1,23 @@
 import 'package:dart_programming/dart_programming.dart' as dart_programming;
 
 void main() {
-  List<String> blackPink = ['로제', '지수', '리사', '제니', '제니'];
+  Map<String, String> harryPotter = {
+    'Harry Potter': '해리포터',
+    'Ron Weasley': '론 위즐리',
+    'Hermione Granger': '헤르미온느 그레인저',
+  };
 
-  print(blackPink);
-  print(blackPink.asMap());
-  print(blackPink.toSet());
+  final result = harryPotter.map((key, value) => MapEntry(
+        'Harry Potter Character $key',
+        '해리포터 캐릭터 $value',
+      ));
 
-  Map blackPinkMap = blackPink.asMap();
+  print(harryPotter);
+  print(result);
 
-  print(blackPinkMap.keys.toList());
-  print(blackPinkMap.values.toList());
+  final keys = harryPotter.keys.map((x) => 'HPC $x').toList();
+  final values = harryPotter.keys.map((x) => '해리포터 $x').toList();
 
-  Set blackPinkSet = Set.from(blackPink);
-
-  print(blackPinkSet.toList());
-
-  final newBlackPink = blackPink.map((x) {
-    return '블랙핑크 $x';
-  });
-
-  print(blackPink);
-  print(newBlackPink.toList());
-
-  final newBlackPink2 = blackPink.map((x) => '블랙핑크 $x');
-
-  print(newBlackPink2.toList());
-
-  print(blackPink == blackPink); // true
-  print(newBlackPink == blackPink); // false
-  print(newBlackPink == newBlackPink2); // false
-
-  String number = '13579';
-  
-  final parsed = number.split('').map((x) => '$x.jpg').toList();
-
-  print(parsed);
+  print(keys);
+  print(values);
 }
