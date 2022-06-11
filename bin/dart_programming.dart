@@ -1,81 +1,45 @@
 import 'package:dart_programming/dart_programming.dart' as dart_programming;
 
 void main() {
-  print('------ Idol ------');
-  Idol apink = Idol(name: '에이핑크', membersCount: 5);
+  TimesTwo tt = TimesTwo(2);
 
-  apink.sayName();
-  apink.sayMembersCount();
+  print(tt.calculate());
 
-  print('------ Boy Group ------');
-  BoyGroup bts = BoyGroup('BTS', 7);
+  TimesFour tf = TimesFour(2);
 
-  bts.sayName();
-  bts.sayMembersCount();
-
-  print('------ Girl Group ------');
-  GirlGroup redVelvet = GirlGroup('Red Velvet', 5);
-
-  redVelvet.sayName();
-  redVelvet.sayMembersCount();
-  redVelvet.sayFemale();
-
-  print('------ Type Comparison ------');
-  print(apink is Idol);
-  print(apink is BoyGroup);
-  print(apink is GirlGroup);
-
-  print('------ Type Comparison 2 ------');
-  print(bts is Idol);
-  print(bts is BoyGroup);
-  print(bts is GirlGroup);
-
-  print('------ Type Comparison 3 ------');
-  print(redVelvet is Idol);
-  print(redVelvet is BoyGroup);
-  print(redVelvet is GirlGroup);
+  print(tf.calculate());
 }
 
-// 상속 - inheritance
-//
-// 상속을 받으면 부모 클래스의 모든 속성을
-// 자식 클래스가 부여받는다.
-class Idol {
-  // 이름
-  String name;
+// method - function (class 내부에 있는 함수)
+// override - 덮어쓰다 (우선시하다)
+class TimesTwo {
+  final int number;
 
-  // 멤버 숫자
-  int membersCount;
+  TimesTwo(this.number);
 
-  Idol({required this.name, required this.membersCount});
+  // method
+  // int calculate() {
+  //   int number = 3;
+  //
+  //   return this.number * 2;
+  // }
 
-  void sayName() {
-    print('저는 ${this.name}입니다.');
-  }
-
-  void sayMembersCount() {
-    print('${this.name}은 ${this.membersCount}명의 멤버가 있습니다.');
+  int calculate() {
+    return number * 2;
   }
 }
 
-class BoyGroup extends Idol {
-  BoyGroup(
-    String name,
-    int membersCount,
-  ) : super(name: name, membersCount: membersCount);
+class TimesFour extends TimesTwo {
+  TimesFour(
+    int number,
+  ) : super(number);
 
-  void sayMale() {
-    print('저는 남자 아이돌입니다.');
-  }
-}
-
-class GirlGroup extends Idol {
-  GirlGroup(
-    String name,
-    int membersCount,
-  ) : super(name: name, membersCount: membersCount);
-
-  void sayFemale() {
-    print('저는 여자 아이돌입니다.');
+  @override
+  int calculate() {
+    // return super.number * 4;
+    // return this.number * 4;
+    // return number * 4;
+    // return this.calculate() * 2; => 재귀함수
+    return super.calculate() * 2;
   }
 }
