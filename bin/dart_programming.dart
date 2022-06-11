@@ -1,14 +1,30 @@
 import 'package:dart_programming/dart_programming.dart' as dart_programming;
 
 void main() {
-  Set blackPinkSet = {
-    '로제',
-    '지수',
-    '제니',
-    '리사',
-  };
+  List<Map<String, String>> people = [
+    {
+      'name': '로제',
+      'group': '블랙핑크',
+    },
+    {
+      'name': '지수',
+      'group': '블랙핑크',
+    },
+    {
+      'name': 'RM',
+      'group': 'BTS',
+    },
+    {
+      'name': '뷔',
+      'group': 'BTS',
+    },
+  ];
 
-  final newSet = blackPinkSet.map((x) => '블랙핑크 $x').toSet();
+  print(people);
 
-  print(newSet);
+  final blackPink = people.where((x) => x['group'] == '블랙핑크').toList();
+  final bts = people.where((x) => x['group'] == 'BTS').toList();
+
+  print(blackPink);
+  print(bts);
 }
