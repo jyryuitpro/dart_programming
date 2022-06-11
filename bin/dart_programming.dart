@@ -1,45 +1,40 @@
 import 'package:dart_programming/dart_programming.dart' as dart_programming;
 
 void main() {
-  TimesTwo tt = TimesTwo(2);
+  Employee seulgi = Employee('슬기');
+  Employee chorong = Employee('초롱');
+  Employee jenny = Employee('제니');
 
-  print(tt.calculate());
+  seulgi.name = '코드팩토리';
+  seulgi.printNameAndBuilding();
+  chorong.printNameAndBuilding();
 
-  TimesFour tf = TimesFour(2);
+  Employee.building = '오투타워';
 
-  print(tf.calculate());
+  seulgi.printNameAndBuilding();
+  chorong.printNameAndBuilding();
+
+  Employee.printBuilding();
 }
 
-// method - function (class 내부에 있는 함수)
-// override - 덮어쓰다 (우선시하다)
-class TimesTwo {
-  final int number;
+class Employee {
+  // static은 instance에 귀속되지 않고 class에 귀속된다.
+  // 알바생이 일하고있는 건물
+  static String? building;
 
-  TimesTwo(this.number);
+  // 알바생 이름
+  // final String name;
+  String name;
 
-  // method
-  // int calculate() {
-  //   int number = 3;
-  //
-  //   return this.number * 2;
-  // }
+  Employee(
+    this.name,
+  );
 
-  int calculate() {
-    return number * 2;
+  void printNameAndBuilding() {
+    print('제 이름은 $name입니다. $building 건물에서 근무하고 있습니다.');
   }
-}
 
-class TimesFour extends TimesTwo {
-  TimesFour(
-    int number,
-  ) : super(number);
-
-  @override
-  int calculate() {
-    // return super.number * 4;
-    // return this.number * 4;
-    // return number * 4;
-    // return this.calculate() * 2; => 재귀함수
-    return super.calculate() * 2;
+  static void printBuilding() {
+    print('저는 $building 건물에서 근무하고 있습니다.');
   }
 }
