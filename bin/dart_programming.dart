@@ -1,31 +1,48 @@
-import 'dart:async';
-
 import 'package:dart_programming/dart_programming.dart' as dart_programming;
 
 void main() {
- // calculate(2).listen((val) {
- //   print('calculate(2) : $val');
- // });
+  DateTime now = DateTime.now();
 
- // calculate(4).listen((val) {
- //   print('calculate(4) : $val');
- // });
+  print(now);
+  print(now.year);
+  print(now.month);
+  print(now.day);
+  print(now.hour);
+  print(now.minute);
+  print(now.second);
+  print(now.millisecond);
 
- playAllStream().listen((val) {
-   print(val);
- });
-}
+  Duration duration = Duration(seconds: 60);
 
-// Future의 await와 비슷한 기능
-Stream<int> playAllStream() async* {
-  yield* calculate(1);
-  yield* calculate(1000);
-}
+  print(duration);
+  print(duration.inDays);
+  print(duration.inHours);
+  print(duration.inMinutes);
+  print(duration.inSeconds);
+  print(duration.inMilliseconds);
 
-Stream<int> calculate(int number) async*{
-  for (int i = 0; i < 5; i++) {
-    yield i * number;
+  DateTime specificDay = DateTime(
+    2017,
+    11,
+    23,
+  );
 
-    await Future.delayed(Duration(seconds: 1));
-  }
+  print(specificDay);
+
+  final difference = now.difference(specificDay);
+
+  print(difference);
+  print(difference.inDays);
+  print(difference.inHours);
+  print(difference.inMinutes);
+  print(difference.inSeconds);
+  print(difference.inMilliseconds);
+
+  print(now.isAfter(specificDay));
+  print(now.isBefore(specificDay));
+
+  print('-----------------------');
+  print(now);
+  print(now.add(Duration(hours: 10)));
+  print(now.subtract(Duration(seconds: 20)));
 }
