@@ -1,48 +1,17 @@
 import 'package:dart_programming/dart_programming.dart' as dart_programming;
 
 void main() {
-  DateTime now = DateTime.now();
+  final number = 123;
 
-  print(now);
-  print(now.year);
-  print(now.month);
-  print(now.day);
-  print(now.hour);
-  print(now.minute);
-  print(now.second);
-  print(now.millisecond);
+  print(number.toString().runtimeType);
+  print(number.toString().split(''));
+  print(number.toString().split('').map((x) => '$x.jpg').toList());
 
-  Duration duration = Duration(seconds: 60);
+  final numbers = [
+    123,
+    456,
+    789,
+  ];
 
-  print(duration);
-  print(duration.inDays);
-  print(duration.inHours);
-  print(duration.inMinutes);
-  print(duration.inSeconds);
-  print(duration.inMilliseconds);
-
-  DateTime specificDay = DateTime(
-    2017,
-    11,
-    23,
-  );
-
-  print(specificDay);
-
-  final difference = now.difference(specificDay);
-
-  print(difference);
-  print(difference.inDays);
-  print(difference.inHours);
-  print(difference.inMinutes);
-  print(difference.inSeconds);
-  print(difference.inMilliseconds);
-
-  print(now.isAfter(specificDay));
-  print(now.isBefore(specificDay));
-
-  print('-----------------------');
-  print(now);
-  print(now.add(Duration(hours: 10)));
-  print(now.subtract(Duration(seconds: 20)));
+  print(numbers.map((x) => x.toString().split('').map((y) => '$y.jpg').toList()).toList());
 }
